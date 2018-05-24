@@ -1,0 +1,53 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="modal-dialog" style="margin-bottom: 0; margin-top: 8em;">
+				<div class="modal-content">
+					<div class="panel-heading">
+						<h3 class="panel-title">
+							Sign Up
+							<span class="pull-right">
+								<a [routerLink]="['../login']">Sign In
+								</a>
+							</span>
+						</h3>
+					</div>
+					<div class="panel-body">
+						<form #reg="ngForm" (ngSubmit)="register(reg.value)">
+							<fieldset>
+								<div class="form-group">
+									<input type="text" name="username" [(ngModel)]="username" #user="ngModel" class="form-control" placeholder="Enter username"
+									 required>
+									<div [hidden]="user.valid || user.pristine" class="alert alert-danger">
+										Username is required
+									</div>
+								</div>
+								<div class="form-group">
+									<input type="email" name="email" [(ngModel)]="email" #em="ngModel" class="form-control" placeholder="Enter email" required>
+									<div [hidden]="em.valid || em.pristine" class="alert alert-danger">
+										Email is required
+									</div>
+								</div>
+								<div class="form-group">
+									<input type="password" name="password" [(ngModel)]="password" #pass="ngModel" class="form-control" placeholder="Enter password"
+									 required>
+									<div [hidden]="pass.valid || pass.pristine" class="alert alert-danger">
+										Password is required
+									</div>
+								</div>
+								<div class="checkbox">
+									<label>
+										<input name="remember" type="checkbox" value="Remember Me">Remember Me
+									</label>
+									<!-- Change this to a button or input when using this as a form -->
+									<button type="submit" [disabled]="!reg.form.valid" class="btn btn-sm btn-primary pull-right">Submit</button>
+								</div>
+							</fieldset>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr>
+	</div>
+</div>

@@ -1,0 +1,247 @@
+<div class="container wrapper" style="margin-top: 20px; margin-bottom: 20px;">
+
+	<div class="row">
+		<div class="col-md-4 leftSection">
+
+			<ul class="nav nav-pills">
+				<li class="active">
+					<a data-toggle="pill" href="#oneWay">One Way</a>
+				</li>
+				<li>
+					<a data-toggle="pill" href="#return">Round Trip</a>
+				</li>
+			</ul>
+			<div class="tab-content">
+				<div id="oneWay" class="tab-pane fade in active">
+					<form #OneWay="ngForm" (ngSubmit)="onSubmit(OneWay.value)" novalidate>
+
+
+						<div class="form-group">
+							<label for="source">Enter Origin City :</label>
+
+							<select class="form-control" id="source" name="source" ngModel [(ngModel)]="flight.source" (ngModelChange)="onChangeSource($event)"
+							 required>
+								<option *ngFor="let src of sourceList" [value]="src">{{src}}</option>
+							</select>
+						</div>
+
+						<div class="form-group">
+							<label for="destination">Enter Destination City :</label>
+							<select class="form-control" id="destination" name="destination" ngModel [(ngModel)]="flight.destination" (ngModelChange)="onChangedestination($event)"
+							 required>
+								<option *ngFor="let dest of destinationList" [value]="dest">{{dest}}</option>
+							</select>
+						</div>
+
+						<div *ngIf="valueStatus" class="alert alert-danger">
+							Origin City and Destination City can't be same.
+						</div>
+
+
+						<div class="form-group">
+							<label for="startDate">Departure Date :</label>
+							<div class="form-group">
+								<input type="date" name="startDate" ngModel class="form-control" id="startDate" placeholder="Enter Destination City">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="passanger">Passengers :</label>
+							<div class="form-group">
+								<input type="number" class="form-control" name="passanger" ngModel placeholder="Enter Passenger">
+							</div>
+						</div>
+						<div class="form-group">
+							<button type="submit" value="Search" class="btn btn-primary pull-right" [disabled]="!OneWay.form.valid">Submit</button>
+						</div>
+					</form>
+					<hr>
+					<!-- <h4>Flight Search </h4> -->
+					<!-- {{ OneWay.value | json }} -->
+					<!-- <img src="../assets/range.png" width="100%"> -->
+				</div>
+
+				<!-- <ng2-slider min="3" max="33" value="7" stepValue="1" [normalHandlerStyle]="{ 'background-color': 'blue'}" [slidingHandlerStyle]="{
+                  'border-radius': '9px',
+                  'background-color': 'orange'
+            }">
+            </ng2-slider> -->
+
+				<div id="return" class="tab-pane fade">
+					<form #Return="ngForm" (ngSubmit)="onSubmit(Return.value)" novalidate>
+						<div class="form-group">
+							<label for="source">Enter Origin City :</label>
+
+							<select class="form-control" id="source" name="source" ngModel [(ngModel)]="flight.source" (ngModelChange)="onChangeSource($event)"
+							 required>
+								<option *ngFor="let src of sourceList" [value]="src">{{src}}</option>
+							</select>
+						</div>
+
+						<div class="form-group">
+							<label for="destination">Enter Destination City :</label>
+							<select class="form-control" id="destination" name="destination" ngModel [(ngModel)]="flight.destination" (ngModelChange)="onChangedestination($event)"
+							 required>
+								<option *ngFor="let dest of destinationList" [value]="dest">{{dest}}</option>
+							</select>
+						</div>
+
+						<div *ngIf="valueStatus" class="alert alert-danger">
+							Origin City and Destination City can't be same.
+						</div>
+
+						<div class="form-group">
+							<label for="startDate">Departure Date :</label>
+							<div class="form-group">
+								<input type="date" name="startDate" ngModel class="form-control" id="startDate" placeholder="Enter Departure Date">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="endDate">Return Date :</label>
+							<div class="form-group">
+								<input type="date" name="endDate" ngModel class="form-control" id="endDate" placeholder="Return Date">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="passanger">Passengers :</label>
+							<div class="form-group">
+								<input type="number" class="form-control" name="passanger" ngModel placeholder="Enter Passenger">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<input type="submit" value="Search" class="btn btn-primary pull-right">
+						</div>
+					</form>
+					<!-- {{ Return.value | json }} -->
+				</div>
+			</div>
+
+			<br>
+			<br>
+			<span>0</span>
+			<input type="range" min="0" max="100" [(ngModel)]="sliderValue" />
+			<span>100</span>
+
+		</div>
+
+
+		<div class="col-md-8 rightSection">
+
+			<div class="row">
+				<div *ngIf="flightStatus">
+
+					<div class="col-sm-12 bookingBox">
+						<div class="title">
+							<p>Search for various domestic and international flight schedule by IndiGo aviation for different origin and destination
+								flights.</p>
+						</div>
+						<div class="row">
+							<div class="col-sm-6">
+								<img src="../assets/flight-1.jpg" class="center-block img-rounded img-responsive" alt="Image 1">
+							</div>
+							<div class="col-sm-6">
+								<img src="../assets/flight-2.jpg" class="center-block img-rounded img-responsive" alt="Image 2">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-6">
+								<img src="../assets/flight-2.jpg" class="center-block img-rounded img-responsive" alt="Image 2">
+							</div>
+							<div class="col-sm-6">
+								<img src="../assets/flight-1.jpg" class="center-block img-rounded img-responsive" alt="Image 1">
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div *ngIf="!flightStatus">
+
+					<div class="col-sm-12">
+						<div class="title">
+							<h3>
+								<span>{{ source }} ></span>
+								<span>{{ destination }} </span>
+							</h3>
+						</div>
+
+						<div *ngIf="searchStatus" class="alert alert-info">
+							<strong>Info!</strong> There is no Flights between {{ source }} to {{ destination }}.
+						</div>
+					</div>
+
+					<div *ngFor="let flight of filteredFlights | range: sliderValue" class="col-sm-12 bookingBox">
+
+						<div class="col-sm-8">
+							<!-- table place here -->
+							<h2>Rs. {{ flight.price | currency: 'INR':true}}</h2>
+							<table class="table">
+								<tbody>
+									<tr>
+										<td>
+											<span>Name: </span>
+										</td>
+										<td>
+											<span>{{flight.title}} ({{flight._id}})</span>
+										</td>
+									</tr>
+
+									<tr>
+										<td>
+											<span>Depart:</span>
+										</td>
+										<td>
+											<span>{{flight.depart}}</span>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<span>Arrive: </span>
+										</td>
+										<td>
+											<span>{{flight.arrive}}</span>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<span>duration:</span>
+										</td>
+										<td>
+											<span>
+												{{ flight.duration }}
+											</span>
+
+										</td>
+									</tr>
+									<tr *ngIf="startDate">
+										<td>
+											<span>Date:</span>
+										</td>
+										<td>
+											<span>
+												{{ flight.startDate }}
+											</span>
+
+										</td>
+									</tr>
+								</tbody>
+							</table>
+
+						</div>
+						<div class="col-sm-4">
+							<div class="bookingStatus  center">
+								<img src="../assets/rectangle.png" width="auto" height="auto">
+								<button routerLink="/booked" class="btn btn-default">Book this flight</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+
+		</div>
+	</div>
+</div>

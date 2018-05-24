@@ -1,0 +1,6 @@
+#welcomeBanner {
+	background-image: url("./assets/welcomeBanner.jpeg");
+	background-color: #cccccc;
+	min-height: 200px;
+	margin-top: -20px;
+}
