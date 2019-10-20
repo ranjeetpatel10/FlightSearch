@@ -16,7 +16,7 @@ import { Component, OnInit } from '@angular/core';
     background-image: url(./assets/about-bg.jpeg);
     background-color: #cccccc;
     min-height: 200px;
-    margin-top: -20px;
+    margin-top: 50px;
   }
   h2.sub_header{ color: white; font-size: 42px; margin-top: 70px; }`],
 })

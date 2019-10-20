@@ -139,7 +139,7 @@
         "depart": "6:20 PM",
         "arrive": "10:30 PM",
         "startDate": "2018-03-18",
-        "endDate": "2018-03-20",
+        "endDate": "2018-03-10",
         "duration": "4h 10m",
         "price": 4602
     },
@@ -151,7 +151,7 @@
         "depart": "6:20 PM",
         "arrive": "10:30 PM",
         "startDate": "2018-03-18",
-        "endDate": "2018-03-20",
+        "endDate": "2018-03-25",
         "duration": "4h 10m",
         "price": 4602
     }

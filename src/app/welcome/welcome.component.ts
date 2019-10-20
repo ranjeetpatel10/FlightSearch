@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
   styles: [` #welcomeBanner {
-    margin-top: -20px;
+    margin-top: 60px;
   }`]
 })
 export class WelcomeComponent implements OnInit {
