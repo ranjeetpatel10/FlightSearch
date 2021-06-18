@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  firebaseConfig: {
+  firebaseConfig: { 
     // apiKey: "AIzaSyB7uCX71PF3Ey7fjDAkM5DL9JUAEfw7S0I",
     // authDomain: "angularpatel.firebaseapp.com",
     // databaseURL: "https://angularpatel.firebaseio.com",
